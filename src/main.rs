@@ -1,6 +1,7 @@
 use bevy::{prelude::*};
 mod core;
 mod splash;
+mod intro;
 
 fn main() {
     std::env::set_var("RUST_BACKTRACE", "1");
@@ -19,6 +20,7 @@ fn main() {
         .add_state(core::GameState::Splash)
         .add_plugin(core::input::InputPlugin)
         .add_plugin(splash::SplashPlugin)
+        .add_plugin(intro::IntroPlugin)
         .run();
 }
 

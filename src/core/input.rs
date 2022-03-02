@@ -15,6 +15,7 @@ impl Plugin for InputPlugin {
         app
             .add_event::<AnyKeyEvent>()
             .add_event::<PlayerMovementEvent>()
+            .add_event::<ConfirmEvent>()
             .add_system(keyboard_input)
             .add_system(keyboard_anykey_input)
             .add_system(mouse_input);
@@ -33,6 +34,8 @@ pub struct PlayerMovementEvent {
     direction: PlayerDirection,
 }
 
+pub struct ConfirmEvent;
+
 fn keyboard_anykey_input(
     mut keyboard_input_events: EventReader<KeyboardInput>,
     mut any_key_events: EventWriter<AnyKeyEvent>,
@@ -45,6 +48,7 @@ fn keyboard_anykey_input(
 fn keyboard_input(
     keyboard_input: Res<Input<KeyCode>>,
     mut player_movement_events: EventWriter<PlayerMovementEvent>,
+    mut confirm_events: EventWriter<ConfirmEvent>,
 ) {
     if keyboard_input.pressed(KeyCode::A) {
         player_movement_events.send(PlayerMovementEvent {
@@ -56,6 +60,10 @@ fn keyboard_input(
         player_movement_events.send(PlayerMovementEvent {
             direction: PlayerDirection::Right
         })
+    }
+
+    if keyboard_input.just_pressed(KeyCode::Return) {
+        confirm_events.send(ConfirmEvent);
     }
 }
 
