@@ -31,7 +31,7 @@ pub enum PlayerDirection {
 }
 
 pub struct PlayerMovementEvent {
-    direction: PlayerDirection,
+    pub direction: PlayerDirection,
 }
 
 pub struct ConfirmEvent;

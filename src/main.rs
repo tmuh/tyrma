@@ -2,6 +2,8 @@ use bevy::{prelude::*};
 mod core;
 mod splash;
 mod intro;
+mod game;
+mod endgame;
 
 fn main() {
     std::env::set_var("RUST_BACKTRACE", "1");
@@ -21,9 +23,12 @@ fn main() {
         .add_plugin(core::input::InputPlugin)
         .add_plugin(splash::SplashPlugin)
         .add_plugin(intro::IntroPlugin)
+        .add_plugin(game::InGamePlugin)
+        .add_plugin(endgame::EndGamePlugin)
         .run();
 }
 
 fn setup(mut commands: Commands) {
+    commands.spawn_bundle(OrthographicCameraBundle::new_2d());
     commands.spawn_bundle(UiCameraBundle::default());
 }
