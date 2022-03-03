@@ -1,8 +1,8 @@
 use bevy::{prelude::*};
-use bevy_loading::prelude::*;
 
 mod core;
 mod splash;
+mod loading;
 mod intro;
 mod game;
 mod endgame;
@@ -24,14 +24,7 @@ fn main() {
         .add_state(core::GameState::Splash)
         .add_plugin(core::input::InputPlugin)
         .add_plugin(splash::SplashPlugin)
-        .add_plugin(LoadingPlugin {
-            loading_state: core::GameState::Loading,
-            next_state: core::GameState::Intro,
-        })
-        .add_system_set(
-            SystemSet::on_update(core::GameState::Loading)
-                .with_system(load_game_assets)
-        )
+        .add_plugin(loading::GameAssetLoadPlugin)
         .add_plugin(intro::IntroPlugin)
         .add_plugin(game::InGamePlugin)
         .add_plugin(endgame::EndGamePlugin)
@@ -41,11 +34,4 @@ fn main() {
 fn setup(mut commands: Commands) {
     commands.spawn_bundle(OrthographicCameraBundle::new_2d());
     commands.spawn_bundle(UiCameraBundle::default());
-}
-
-fn load_game_assets(
-    mut commands: Commands,
-    asset_server: Res<AssetServer>
-) {
-
 }

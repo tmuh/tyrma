@@ -4,12 +4,18 @@ use crate::core::{
     input::PlayerDirection,
 };
 use super::OnInGameScreen;
+use crate::loading::PlayerAssets;
 
 pub fn player_setup(
     mut commands: Commands, 
-    asset_server: Res<AssetServer>
+    player_assets: Res<PlayerAssets>
 ) {
     // TODO: Spawn player sprite.
+    commands
+        .spawn_bundle(SpriteBundle {
+            texture: player_assets.player_left.clone(),
+            ..Default::default()
+        });
 }
 
 const MOVEMENT_SPEED: f32 = 1.0;
