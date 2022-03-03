@@ -46,6 +46,6 @@ fn splash_input(
 ) {
     for _my_event in events.iter() {
         info!("Any key received");
-        game_state.set(GameState::Intro).unwrap();
+        game_state.set(GameState::Loading).unwrap();
     }
 }

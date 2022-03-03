@@ -2,9 +2,10 @@ use bevy::prelude::*;
 
 pub mod input;
 
-#[derive(Clone, Eq, PartialEq, Debug, Hash)]
+#[derive(Clone, Eq, PartialEq, Debug, Hash, Component)]
 pub enum GameState {
     Splash,
+    Loading,
     Intro,
     Game,
     EndGame,
