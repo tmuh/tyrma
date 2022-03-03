@@ -12,8 +12,8 @@ fn main() {
         .insert_resource(ClearColor(Color::rgb(0., 0., 0.)))
         .insert_resource(WindowDescriptor {
             title: "Tyrmä".to_string(),
-            width: 1200.,
-            height: 1200.,
+            width: 1024.,
+            height: 768.,
             vsync: true,
             ..Default::default()
         })
