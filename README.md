@@ -1,4 +1,4 @@
 # Tyrmä
- My Bevy Jam 1 entry
+Originally this project started as an entry to the Bevy Jam #1 (https://itch.io/jam/bevy-jam-1). I ran out of time and failed to submit anything even remotely playable. Despite my failed attempt I enjoyed working on this and will definetly participate in next Bevy Jam. I will continue working on this game as a learning project and will hopefully release playable version sometime in the future. It will also continue to follow the theme of the jam: unfair advantage.
 
 Tyrmä (a Finnish word for dungeon) is a story-driven adventure game taking place in a dungeon. Player takes the role of a starving rat trying to 'share' the prisoner's last meal. Who's going to eat that meal? Does the rat have some unfair advantage?
